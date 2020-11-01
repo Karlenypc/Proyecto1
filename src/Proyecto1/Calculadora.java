@@ -82,7 +82,7 @@ public class Calculadora {
         //Datos usuario
         System.out.print("Ingrese el primer digito: ");
         num1 = entrada.nextInt();
-        System.out.print("Seleccione la operación que desea realizar:"
+        System.out.print("\n" + "Seleccione la operación que desea realizar:"
                 + "\n" + "+ = suma" + "\n" + "- = resta" + "\n"
                 + "* = multiplicación" + "\n" + "/ = división" + "\n");
         operacion = entrada.next();

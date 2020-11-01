@@ -7,19 +7,22 @@ import java.util.Scanner;
  * @author Karlenypc
  */
 public class CalculoAreas {
-
+    
+    //Metodo para calcular el area de un Cuadrado
     public static int areaCuadrado(int lado) {
         int resultado = 0;
         resultado = lado * lado;
         return resultado;
     }
-
+    
+    //Metodo para calcular el area de un Rectangulo
     public static int areaRectangulo(int lado, int ancho) {
         int resultado = 0;
         resultado = lado * ancho;
         return resultado;
     }
-
+    
+    //Metodo para calcular el area de un Circulo
     public static double areaCirculo(double radio) {
         double resultado = 0;
         double valorPI = Math.PI;
@@ -75,7 +78,7 @@ public class CalculoAreas {
                     break;
                 }
 
-                case 4: {
+                default: {
                     System.out.println("Su ciclo ha finalizo");
                     break;
                 }

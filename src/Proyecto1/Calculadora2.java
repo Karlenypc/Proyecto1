@@ -77,7 +77,7 @@ public class Calculadora2 {
 
         System.out.println("Favor digite la cantidad de números que desea promediar: ");
         nElementos = entrada.nextInt();
-        for (int i = 0; i <= nElementos; i++) {
+        for (int i = 0; i < nElementos; i++) {
             System.out.println("Digite el numero: " + (i + 1));
             int numero = entrada.nextInt();
             sumatoria = +numero;
@@ -239,10 +239,10 @@ public class Calculadora2 {
                 String listaNumeros = "";
                 // Mostrar lista de numeros
                 System.out.println("El resultado del promedio es: " + promedio(sumatoria, nElementos));
+                break;
             }
 
             case "b": {
-
                 nElementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de elementos que desea calcular:"));
 
                 int[] elementos = new int[nElementos];
@@ -253,6 +253,7 @@ public class Calculadora2 {
                 //Mostrar lista datos
                 int resultado = promedio(elementos);
                 System.out.println("\n" + "El resultado del promedio es: " + resultado);
+                break;
             }
 
             case "c": {
@@ -263,6 +264,7 @@ public class Calculadora2 {
 
                 int resultadoFactorial = factorial(n);
                 System.out.println("El resultado de " + n + "! es: " + resultadoFactorial);
+                break;
             }
 
             case "d": {
@@ -275,6 +277,7 @@ public class Calculadora2 {
                 }
                 int resultadoMax = valorMax(datos, n);
                 System.out.println("El número mayor de su conjunto de datos es: " + resultadoMax);
+                break;
             }
             case "e": {
                 int nDatos = 0;
@@ -295,6 +298,7 @@ public class Calculadora2 {
                     System.out.print(resultado[j] + ",");
                 }
                 System.out.print("}");
+                break;
             }
         }
     }
