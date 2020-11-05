@@ -1,7 +1,6 @@
 package Proyecto1;
 
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -70,32 +69,34 @@ public class Calculadora2 {
     }
 
     //Metodo calculo promedio SIN arreglos
-    public static int promedio(int sumatoria, int nElementos) {
+    public static int promedio() {
         Scanner entrada = new Scanner(System.in);
 
-        int resultado = 0;
+        int n;
+        int sumatoria = 0;
+        System.out.print("Favor digite la cantidad de números que desea promediar: ");
+        n = entrada.nextInt();
 
-        System.out.println("Favor digite la cantidad de números que desea promediar: ");
-        nElementos = entrada.nextInt();
-        for (int i = 0; i < nElementos; i++) {
-            System.out.println("Digite el numero: " + (i + 1));
-            int numero = entrada.nextInt();
-            sumatoria = +numero;
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Digite el número " + i + ": ");
+            int numeros = entrada.nextInt();
+            sumatoria = sumatoria + numeros;
         }
-        resultado = sumatoria / nElementos;
+
+        int resultado = sumatoria / n;
         return resultado;
     }
 
     //Metodo calculo promedio con arreglos
-    public static int promedio(int[] elementos) {
+    public static int promedios(int[] elementos) {
         int resultado = 0;
-        int sumA = 0;
+        int suma = 0;
 
-        for (int numero : elementos) {
-            sumA = +numero;
+        for (int i : elementos) {
+            suma += i;
         }
 
-        resultado = sumA / elementos.length;
+        resultado = suma / elementos.length;
         return resultado;
     }
 
@@ -113,19 +114,44 @@ public class Calculadora2 {
     public static int valorMax(int digitos, int nDigitos) {
         int resultado = 0;
 
-        //Mostrar datos? 
-        int maximo = 0;
-        for (int i = 0; i <= nDigitos; i++) {
-            if (i > maximo) {
-                i = maximo;
+        for (int i = 0; i < nDigitos; i++) {
+            if (i > digitos) {
+                i = digitos;
             }
-            resultado = maximo;
+            resultado = digitos;
         }
         return resultado;
     }
-    
-    //Método para hayar el valor Max con arreglo[]
-    //public static int 
+
+    //Método para hayar el valor Max de un arreglo
+    public static int hayarMax(int[] nDatos) {
+        int posicionMax = nDatos[0];
+
+        for (int i = 0; i < nDatos.length; i++) {
+            if (nDatos[i] > posicionMax) {
+                posicionMax = nDatos[i];
+            }
+        }
+
+        return posicionMax;
+    }
+
+    //Invertir lista de un arreglo
+    public static int[] invertirLista(int[] nums, int i) {
+        int[] resultado = new int[nums.length];
+
+        int ultimoValor = (i - 1);
+        System.out.print("{");
+        while (ultimoValor >= 0) {
+
+            System.out.print(nums[ultimoValor] + ",");
+
+            ultimoValor--;
+        }
+        System.out.print("}");
+
+        return resultado;
+    }
 
     //Reordenar lista de forma aleatoria 
     public static int[] reordenarAleatorio(int[] numeros) {
@@ -160,104 +186,92 @@ public class Calculadora2 {
         Scanner entrada = new Scanner(System.in);
         Calculadora2 newCalcu = new Calculadora2();
 
-        //Variables
-        int x = 0;
-        int y = 0;
-        int sumaTotal = 0;
-        int restaTotal = 0;
-        int multiplTotal = 0;
-        double divisionTotal = 0;
-        String operacion = "";
-        String operador = "";
-        int nElementos = 0;
-        int sumatoria = 0;
-
-        //Datos usuario
         System.out.println("Seleccione la operación que desea realizar:");
-        System.out.println("1. + = suma");
-        System.out.println("2. - = resta");
-        System.out.println("3. * = multiplicación");
-        System.out.println("4. / = división");
-        System.out.println("5. a = % calculo promedio (SIN arreglos)");
-        System.out.println("6. b = % calculo promedio (con arreglos)");
-        System.out.println("7. c = n! calculo de un factorial");
-        System.out.println("8. d = calculo del valor Máximo");
-        System.out.println("9.  = promedio (con arreglos)");
+        System.out.println("1.  a = suma");
+        System.out.println("2.  b = resta");
+        System.out.println("3.  c = multiplicación");
+        System.out.println("4.  d = división");
+        System.out.println("5.  e = calculo promedio (SIN arreglos)");
+        System.out.println("6.  f = calculo promedio (con arreglos)");
+        System.out.println("7.  g = n! calculo de un factorial");
+        System.out.println("8.  h = hayar del valor máximo (SIN arreglos)");
+        System.out.println("9.  i = hayar el valor máximo  (con arreglos)");
+        System.out.println("10. j = invertir lista de números (arreglo)");
+        System.out.println("11. k = reordenar lista de forma aleatoria");
 
+        String operacion = "";
         operacion = entrada.next();
 
         switch (operacion) {
-            case "+": {
+            case "a": {
                 System.out.print("Ingrese el primer digito: ");
-                x = entrada.nextInt();
-                operador = "+";
+                int x = entrada.nextInt();
+                String operador = "+";
                 System.out.print("Ingrese el segundo digito: ");
-                y = entrada.nextInt();
-                sumaTotal = newCalcu.suma(x, y);
+                int y = entrada.nextInt();
+                int sumaTotal = newCalcu.suma(x, y);
                 System.out.println("\n" + "El resultado de su operación es: ");
                 System.out.println(x + " " + operador + " " + y + " " + "=" + " " + sumaTotal);
                 break;
             }
 
-            case "-": {
+            case "b": {
                 System.out.print("Ingrese el primer digito: ");
-                x = entrada.nextInt();
-                operador = "-";
+                int x = entrada.nextInt();
+                String operador = "-";
                 System.out.print("Ingrese el segundo digito: ");
-                y = entrada.nextInt();
-                restaTotal = newCalcu.resta(x, y);
+                int y = entrada.nextInt();
+                int restaTotal = newCalcu.resta(x, y);
                 System.out.println("\n" + "El resultado de su operación es: ");
                 System.out.println(x + " " + operador + " " + y + " " + "=" + " " + restaTotal);
                 break;
             }
 
-            case "*": {
+            case "c": {
                 System.out.print("Ingrese el primer digito: ");
-                x = entrada.nextInt();
-                operador = "*";
+                int x = entrada.nextInt();
+                String operador = "*";
                 System.out.print("Ingrese el segundo digito: ");
-                y = entrada.nextInt();
-                multiplTotal = newCalcu.multiplicacion(x, y);
+                int y = entrada.nextInt();
+                int multiplTotal = newCalcu.multiplicacion(x, y);
                 System.out.println("\n" + "El resultado de su operación es: ");
                 System.out.println(x + " " + operador + " " + y + " " + "=" + " " + multiplTotal);
                 break;
             }
 
-            case "/": {
+            case "d": {
                 System.out.print("Ingrese el primer digito: ");
-                x = entrada.nextInt();
-                operador = "/";
+                int x = entrada.nextInt();
+                String operador = "/";
                 System.out.print("Ingrese el segundo digito: ");
-                y = entrada.nextInt();
-                divisionTotal = newCalcu.division(x, y);
+                int y = entrada.nextInt();
+                int divisionTotal = newCalcu.division(x, y);
                 System.out.println("\n" + "El resultado de su operación es: ");
                 System.out.println(x + " " + operador + " " + y + " " + "=" + " " + divisionTotal);
                 break;
             }
 
-            case "a": {
-                String listaNumeros = "";
-                // Mostrar lista de numeros
-                System.out.println("El resultado del promedio es: " + promedio(sumatoria, nElementos));
+            case "e": {
+                int resultado = promedio();
+                System.out.println("\n" + "El promedio es: " + resultado);
                 break;
             }
 
-            case "b": {
-                nElementos = Integer.parseInt(JOptionPane.showInputDialog("Digite la cantidad de elementos que desea calcular:"));
+            case "f": {
+                int nElementos;
+                System.out.print("Digite la cantidad de elementos que desea calcular: ");
+                nElementos = entrada.nextInt();
 
                 int[] elementos = new int[nElementos];
                 for (int i = 0; i < nElementos; i++) {
-                    System.out.print((i + 1) + ". Ingrese un digito: ");
+                    System.out.print("Digite el número " + (i + 1) + ": ");
                     elementos[i] = entrada.nextInt();
                 }
-                //Mostrar lista datos
-                int resultado = promedio(elementos);
-                System.out.println("\n" + "El resultado del promedio es: " + resultado);
+                System.out.println("\n" + "El resultado del promedio es: " + promedios(elementos));
                 break;
             }
 
-            case "c": {
-                // Main Factorial 
+            case "g": {
                 int n;
                 System.out.print("Ingrese el número: ");
                 n = entrada.nextInt();
@@ -267,29 +281,71 @@ public class Calculadora2 {
                 break;
             }
 
-            case "d": {
+            case "h": {
                 int datos = 0;
-                System.out.println("Digite el tamaño de su conjunto de datos: ");
+                System.out.print("Digite el tamaño de su conjunto de datos: ");
                 int n = entrada.nextInt();
                 for (int i = 0; i < n; i++) {
                     System.out.println("Ingrese el dato " + (i + 1) + ": ");
                     datos = entrada.nextInt();
                 }
                 int resultadoMax = valorMax(datos, n);
-                System.out.println("El número mayor de su conjunto de datos es: " + resultadoMax);
+                System.out.println("\n" + "El número mayor de su conjunto de datos es: " + resultadoMax);
                 break;
             }
-            case "e": {
+
+            case "i": {
+                int n;
+                System.out.print("Digite el tamaño de su arreglo: ");
+                n = entrada.nextInt();
+
+                int[] arreglo = new int[n];
+                for (int i = 0; i < n; i++) {
+                    System.out.print("Ingrese el número " + (i + 1) + ": ");
+                    arreglo[i] = entrada.nextInt();
+                }
+
+                int resultMax = hayarMax(arreglo);
+                System.out.println("\n" + "El número mayor de su arreglo es: " + resultMax);
+                break;
+            }
+
+            case "j": {
+                int n;
+                System.out.print("Ingrese el tamaño de su arreglo: ");
+                n = entrada.nextInt();
+
+                int[] listaArreglo = new int[n];
+                for (int i = 0; i < n; i++) {
+                    System.out.print("Ingrese el número " + (i + 1) + ": ");
+                    listaArreglo[i] = entrada.nextInt();
+                }
+
+                System.out.println("\n" + "Arreglo original:");
+                System.out.print("{");
+                for (int j = 0; j < n; j++) {
+                    System.out.print(listaArreglo[j] + ",");
+                }
+                System.out.print("}");
+
+                System.out.println();
+                System.out.println("\n" + "Arreglo invertido:");
+                System.out.println(invertirLista(listaArreglo, n));
+                break;
+            }
+
+            case "k": {
                 int nDatos = 0;
-                int[] datos = new int[nDatos];
                 int[] resultado;
-                System.out.print("Digite la cantidad de números que desea incluir en su conjunto de datos: ");
+                System.out.print("Digite la cantidad de números de su conjunto de datos: ");
                 nDatos = entrada.nextInt();
+
+                int[] datos = new int[nDatos];
                 for (int i = 0; i < nDatos; i++) {
-                    System.out.println((i + 1) + ". Ingrese un digito: ");
+                    System.out.print("Ingrese el número " + (i + 1) + ": ");
                     datos[i] = entrada.nextInt();
                 }
-                System.out.println("\n" + "El resultado de su conjunto de datos reordenado es: ");
+                System.out.println("\n" + "El resultado reordenado aleatoriamente es: ");
                 resultado = reordenarAleatorio(datos);
 
                 //Mostrar resultado lista aleatoria 
@@ -297,10 +353,9 @@ public class Calculadora2 {
                 for (int j = 0; j < resultado.length; j++) {
                     System.out.print(resultado[j] + ",");
                 }
-                System.out.print("}");
+                System.out.print("}" + "\n");
                 break;
             }
         }
     }
-
 }
