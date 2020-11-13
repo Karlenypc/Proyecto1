@@ -1,4 +1,4 @@
-package Proyecto1;
+ package Proyecto1;
 
 import java.util.Scanner;
 
@@ -252,7 +252,7 @@ public class Calculadora2 {
             }
 
             case "e": {
-                int resultado = promedio();
+                int resultado = newCalcu.promedio();
                 System.out.println("\n" + "El promedio es: " + resultado);
                 break;
             }

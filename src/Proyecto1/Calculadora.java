@@ -50,7 +50,7 @@ public class Calculadora {
         return resultado;
 
     }
-
+//
     public static int division(int num1, int num2) {
         int resultado;
         resultado = num1 / num2;
@@ -69,7 +69,7 @@ public class Calculadora {
         Scanner entrada = new Scanner(System.in);
         Calculadora llamada = new Calculadora();
 
-        //Variables
+        //Variables 
         int num1 = 0;
         int num2 = 0;
         int sumaTotal = 0;
@@ -115,6 +115,14 @@ public class Calculadora {
             }
 
             case "/": {
+                operador = "/";
+                divisionTotal = llamada.division(num1, num2);
+                System.out.println("\n" + "El resultado de su operación es: ");
+                System.out.println(num1 + " " + operador + " " + num2 + " " + "=" + " " + divisionTotal);
+                break;
+            }
+            
+            case "a": {
                 operador = "/";
                 divisionTotal = llamada.division(num1, num2);
                 System.out.println("\n" + "El resultado de su operación es: ");
